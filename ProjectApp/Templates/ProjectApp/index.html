@@ -3,10 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/dedaa49cc7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../static/ProjectApp/normalize.css">
     <link rel="stylesheet" href="../../static/ProjectApp/styles.css">
     <title>Document</title>
 </head>
 <body>
+    <header class="header">
+        <div class="header-container">
+            <h1>Inicio</h1>
+            <div class="user-options">
+                <i class="fas fa-user"></i>
+                <p>Administrador</p>
+                <i class="fas fa-caret-square-down"></i>
+            </div>
+        </div>
+    </header>
+
+    <form class="new-user-form" autocomplete="off">
+        <div class="user-input">
+            <h1>Usuario</h1>
+            <label for="user">
+                <input type="text" name="user">
+            </label>
+        </div>
+        <div class="user-input">
+            <h1>Email</h1>
+            <label for="email">
+                <input type="email" name="email">
+            </label>
+        </div>
+        <div class="user-input">
+            <h1>Contraseña</h1>
+            <label for="password">
+                <input type="password" name="password">
+            </label>
+        </div>
+        <div class="user-input">
+            <h1>Tipo de usuario</h1>
+            <select name="type-user">
+                <option value="admin">Administrador</option>
+                <option value="admin">Empleado</option>
+            </select>
+        </form>
+        
+
+        <div class="buttons">
+            <button class="btn btn-create-user">Regresar</button>
+            <button class="btn btn-create-user">Agregar</button>
+        </div>
+
+    </main>
+
     
+
 </body>
 </html>
