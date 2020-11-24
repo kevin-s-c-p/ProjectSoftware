@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/dedaa49cc7.js" crossorigin="anonymous"></script>
@@ -12,6 +13,7 @@
     <main class="login-main">
         <i class="fas fa-warehouse"></i>
         <form class="new-user-form" action="" method="POST">
+            {% csrf_token %}
             <div class="user-input">
                 <h1>Usuario</h1>
                 <label for="user">
@@ -24,7 +26,7 @@
                     <input type="password" name="password">
                 </label>
             </div>
-            <button class="btn-login">Ingresar</button>
+            <button class="btn-login" type="submit">Ingresar</button>
         </form>
     </main>
 
