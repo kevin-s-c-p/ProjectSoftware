@@ -6,7 +6,7 @@
     <script src="https://kit.fontawesome.com/dedaa49cc7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../../static/ProjectApp/normalize.css">
     <link rel="stylesheet" href="../../static/ProjectApp/styles.css">
-    <title>Document</title>
+    <title>Registro</title>
 </head>
 <body>
     <header class="header">
@@ -14,13 +14,13 @@
             <h1>Inicio</h1>
             <div class="user-options">
                 <i class="fas fa-user"></i>
-                <p>Administrador</p>
+                <p>{{user.username}}</p>
                 <i class="fas fa-caret-square-down"></i>
             </div>
         </div>
     </header>
 
-    <form class="new-user-form">
+    <form class="new-user-form" method="POST">
         <div class="user-input">
             <h1>Usuario</h1>
             <label for="user">
@@ -43,14 +43,14 @@
             <h1>Tipo de usuario</h1>
             <select name="type-user">
                 <option value="admin">Administrador</option>
-                <option value="admin">Empleado</option>
+                <option value="">Empleado</option>
             </select>
         </form>
         
 
         <div class="buttons">
-            <button class="btn btn-create-user">Regresar</button>
-            <button class="btn btn-create-user">Agregar</button>
+            <button class="btn btn-create-user" type="reset">Regresar</button>
+            <button class="btn btn-create-user" type="submit">Agregar</button>
         </div>
 
     </main>

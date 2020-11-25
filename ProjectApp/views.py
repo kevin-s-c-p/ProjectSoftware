@@ -37,7 +37,7 @@ def logout_user(request):
     logout(request)
     return redirect('login')
 
-# @login_required
+
 def index(request):
 
     return render(request,"ProjectApp/index.html")
