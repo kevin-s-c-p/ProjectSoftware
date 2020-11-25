@@ -10,11 +10,12 @@
     <title>Inicio de sesion</title>
 </head>
 <body class="login-body">
-    <!-- {% if user.is_authenticated %}
+    {% if user.is_authenticated %}
         <p>welcome {{user.username}}</p>
+        <a href="{% url 'logout_user' %}">salir</a>
     {% else %}
         <p>No usuario</p>
-    {% endif %} -->
+    {% endif %}
     <main class="login-main">
         <i class="fas fa-warehouse"></i>
         <form class="new-user-form" action="" method="POST">

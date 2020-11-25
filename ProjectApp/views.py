@@ -24,6 +24,10 @@ def login_user(request):
     return render(request,"ProjectApp/login.html",{'message':message})
 
 
+def logout_user(request):
+    logout(request)
+    return redirect('login')
+
 def index(request):
 
     return render(request,"ProjectApp/index.html")
