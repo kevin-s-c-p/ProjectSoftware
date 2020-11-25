@@ -1,10 +1,11 @@
 from django.urls import path
 from django.contrib.auth import login, logout
+from django.contrib.auth.decorators import login_required
 
 from ProjectApp import views
 
 urlpatterns = [
-    path('',views.login_user, name='login'),
+    path('accounts/login/',views.login_user, name='login'),
     path('logout/',views.logout_user, name='logout_user'),
-    path('index/',views.index, name='index'),
+    path('index/',login_required(views.index), name='index'),
 ]

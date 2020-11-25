@@ -1,9 +1,16 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
+from django.urls import reverse_lazy
+from django.http import HttpResponseRedirect
+from django.views.generic.edit import FormView
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+
+
 def login_user(request):
+    template_name = "ProjectApp/login.html"
     message = "Welcome"
 
     if request.method=='POST':
@@ -15,19 +22,22 @@ def login_user(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return redirect('login')
-        
+                if request.GET.get('next',None):
+                    return HttpResponseRedirect(request.GET['next'])
+                else:
+                    redirect('login')
         else:
             message = "Username or Password incorrect"
 
 
-    return render(request,"ProjectApp/login.html",{'message':message})
+    return render(request,"ProjectApp/login.html",{'message':message,'template_name':template_name})
 
 
 def logout_user(request):
     logout(request)
     return redirect('login')
 
+# @login_required
 def index(request):
 
     return render(request,"ProjectApp/index.html")
