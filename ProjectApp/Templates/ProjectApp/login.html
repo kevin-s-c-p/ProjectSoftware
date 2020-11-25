@@ -10,14 +10,20 @@
     <title>Inicio de sesion</title>
 </head>
 <body class="login-body">
+    <!-- {% if user.is_authenticated %}
+        <p>welcome {{user.username}}</p>
+    {% else %}
+        <p>No usuario</p>
+    {% endif %} -->
     <main class="login-main">
         <i class="fas fa-warehouse"></i>
         <form class="new-user-form" action="" method="POST">
             {% csrf_token %}
             <div class="user-input">
                 <h1>Usuario</h1>
+                <p>{{message}}</p>
                 <label for="user">
-                    <input type="text" name="user">
+                    <input type="text" name="username">
                 </label>
             </div>
             <div class="user-input">
