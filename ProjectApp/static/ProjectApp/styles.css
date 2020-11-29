@@ -164,6 +164,8 @@ select:focus{
     font-weight: bold;
 }
 
+
+/** New File **/
 .new-file-form {
     align-items: center;
     display: flex;
@@ -189,4 +191,43 @@ select:focus{
     height: 100%;
     width: 100%;
     border-width: 3px;
+}
+
+/** Users **/
+.display-table {
+    margin: 100px auto 0 auto;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    padding: 30px;
+    width: 90%;
+    text-align: center;
+}
+
+.table-file {
+    margin-top: 50px;
+}
+
+.display-table tr:hover {
+    background-color: gainsboro;
+}
+
+tr {
+    height: 100px;
+    border-bottom-style: solid;
+}
+
+.table-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-buttons button {
+    width: 50%;
+}
+
+.table-buttons-scd {
+    margin-top: 50px;
 }
