@@ -44,6 +44,17 @@ select:focus{
     width: 90%;
 }
 
+.header-container p {
+    color: white;
+    font-size: 25px;
+    transition: all ease-in 0.3s;
+}
+
+.header-container p:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
 .user-options {
     align-items: center;
     display: flex;
@@ -59,6 +70,10 @@ select:focus{
 
 .fas:hover {
     cursor: pointer;
+}
+
+.fa-sign-out-alt {
+    margin-left: 50px;
 }
 
 .new-user-form {
@@ -124,8 +139,6 @@ select:focus{
     border-radius: 50px; 
     border-style: solid;
     border-width: 2px;
-    padding: 50px 10px;
-    margin: 50px auto 0 auto;
     width: 100%;
 }
 
@@ -151,3 +164,29 @@ select:focus{
     font-weight: bold;
 }
 
+.new-file-form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    justify-content: center;
+    margin: auto;
+    width: 35%;
+} 
+
+.new-file label {
+    border-style: solid;
+    border-width: 3px;
+    border-color: gray;
+    border-radius: 50px;
+    padding: 20px;
+}
+
+.file-form textarea{
+    border-style: solid;
+    border-color: gray;
+    border-radius: 50px;
+    height: 100%;
+    width: 100%;
+    border-width: 3px;
+}
