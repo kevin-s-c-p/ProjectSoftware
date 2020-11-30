@@ -5,6 +5,8 @@ from django.http import HttpResponseRedirect
 from django.views.generic.edit import FormView
 from django.contrib.auth.decorators import login_required
 
+from ProjectApp.forms import loginform, UserRegister
+
 # Create your views here.
 
 
@@ -39,5 +41,6 @@ def logout_user(request):
 
 
 def index(request):
+    
 
     return render(request,"ProjectApp/index.html")

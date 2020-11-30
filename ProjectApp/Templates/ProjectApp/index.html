@@ -21,37 +21,42 @@
     </header>
 
     <form class="new-user-form" method="POST">
+        {% csrf_token %}
+        <!-- {{form.as_p}} -->
+        
         <div class="user-input">
             <h1>Usuario</h1>
             <label for="user">
-                <input type="text" name="user">
+                <!-- <input type="text" name="username"> -->
+                <!-- {{form.username}}  -->
             </label>
         </div>
         <div class="user-input">
             <h1>Email</h1>
             <label for="email">
-                <input type="email" name="email">
+                <!-- <input type="email" name="email"> -->
+                <!-- {{form.mail}}] -->
             </label>
         </div>
         <div class="user-input">
             <h1>Contraseña</h1>
             <label for="password">
-                <input type="password" name="password">
+                <!-- <input type="password" name="password"> -->
+                <!-- {{form.password1}} -->
             </label>
         </div>
         <div class="user-input">
             <h1>Tipo de usuario</h1>
-            <select name="type-user">
-                <option value="admin">Administrador</option>
-                <option value="">Empleado</option>
-            </select>
+            <!-- <select name="is_staff">
+                <option value="True">Administrador</option>
+                <option value="False">Empleado</option>
+            </select> -->
+            <!-- {{form.type_user}} -->
+            <div class="buttons">
+                <button class="btn btn-create-user" type="reset">Regresar</button>
+                <button class="btn btn-create-user" type="submit">Agregar</button>
+            </div>
         </form>
-        
-
-        <div class="buttons">
-            <button class="btn btn-create-user" type="reset">Regresar</button>
-            <button class="btn btn-create-user" type="submit">Agregar</button>
-        </div>
 
     </main>
 
