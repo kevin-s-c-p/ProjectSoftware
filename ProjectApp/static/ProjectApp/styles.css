@@ -77,6 +77,7 @@ select:focus{
 }
 
 .new-user-form {
+    padding-top: 5rem;
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -87,7 +88,7 @@ select:focus{
 }
 
 .user-input h1 {
-    font-size: 30px;
+    font-size: 15px;
     text-align: left;
 }
 
@@ -139,7 +140,7 @@ select:focus{
     border-radius: 50px; 
     border-style: solid;
     border-width: 2px;
-    width: 100%;
+    width: 50%;
 }
 
 .btn-login {

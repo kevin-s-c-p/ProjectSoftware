@@ -5,32 +5,52 @@
 {% block content %}
 <form class="new-user-form" method="POST" action="">
     {% csrf_token %}
-    <table>
+    <!-- <table>
         {{form.as_table}}
-    </table>
+    </table> -->
     
-    <!-- <div class="user-input">
+    <div class="user-input">
         <h1>Usuario</h1>
-        <label for="user"> -->
+        <label for="user"> 
             <!-- <input type="text" name="username"> -->
-            <!-- {{form.username}}  -->
-        <!-- </label>
+             {{form.username}} 
+        </label>
     </div>
     <div class="user-input">
-        <h1>Email</h1>
-        <label for="email"> -->
+        <h1>Nombre</h1>
+        <label for="user"> 
+            <!-- <input type="text" name="username"> -->
+             {{form.first_name}} 
+        </label>
+    </div>
+    <div class="user-input">
+        <h1>Correo</h1>
+        <label for="user"> 
+            <!-- <input type="text" name="username"> -->
+             {{form.email}} 
+        </label>
+    </div>
+    <div class="user-input">
+        <h1>Administrador</h1>
+        <label for="admin">
             <!-- <input type="email" name="email"> -->
-            <!-- {{form.mail}}] -->
-        <!-- </label>
-    </div> -->
-    <!-- <div class="user-input">
-        <h1>Contraseña</h1>
-        <label for="password"> -->
-            <!-- <input type="password" name="password"> -->
-            <!-- {{form.password1}} -->
-        <!-- </label>
+            
+            {{form.is_staff}}
+        </label>
     </div>
-    <div class="user-input">
+     <div class="user-input">
+        <h1>Contraseña</h1>
+        <label for="password">
+            <!-- <input type="password" name="password"> -->
+            {{form.password1}}
+        </label>
+        <h1>Confirme Contraseña</h1>
+        <label for="password">
+            <!-- <input type="password" name="password"> -->
+            {{form.password2}}
+        </label>
+    </div>
+    <!--<div class="user-input">
         <h1>Tipo de usuario</h1> -->
         <!-- <select name="is_staff">
             <option value="True">Administrador</option>

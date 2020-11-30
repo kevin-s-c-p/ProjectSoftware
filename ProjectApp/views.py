@@ -48,6 +48,8 @@ def index(request):
         form = registerUser(request.POST)
         if form.is_valid():
             form.save()
+            form = registerUser()
+            redirect('index')
 
     
 
