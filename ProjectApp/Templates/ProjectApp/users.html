@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/dedaa49cc7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../static/ProjectApp/normalize.css">
+    <link rel="stylesheet" href="../../static/ProjectApp/styles.css">
+    <title>Usuarios</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <h1>Inicio</h1>
+            <p>Agregar Usuario</p>
+            <p>Subir Archivo</p>
+            <p>Ver Archivos</p>
+            <div class="user-options">
+                <i class="fas fa-user"></i>
+                <p>{{user.username}}</p>
+                <i class="fas fa-caret-square-down"></i>
+                <i class="fas fa-sign-out-alt"></i>
+            </div>
+        </div>
+    </header>
+
+    <table class="display-table">
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Creador</th>
+            <th>Tipo de usuario</th>
+            <th>Contraseña</th>
+            <th>Acciones</th>
+        </tr>
+        <tr class="table-file">
+            <td>Empleado</td>
+            <td>Cliente@cliente.co</td>
+            <td>Administrador</td>
+            <td>Empleado</td>
+            <td>
+                <p>******** <span><i class="far fa-eye"></i></span></p>
+            </td>
+            <td class="table-buttons">
+                <button>Eliminar</button>
+                <button>Modificar</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Empleado</td>
+            <td>Cliente@cliente.co</td>
+            <td>Administrador</td>
+            <td>Empleado</td>
+            <td>
+                <p>******** <span><i class="far fa-eye"></i></span></p>
+            </td>
+            <td class="table-buttons">
+                <button>Eliminar</button>
+                <button>Modificar</button>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

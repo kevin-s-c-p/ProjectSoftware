@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/dedaa49cc7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../static/ProjectApp/normalize.css">
+    <link rel="stylesheet" href="../../static/ProjectApp/styles.css">
+    <title>Nuevo Producto</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <h1>Inicio</h1>
+            <p>Agregar Usuario</p>
+            <p>Subir Archivo</p>
+            <p>Ver Archivos</p>
+            <div class="user-options">
+                <i class="fas fa-user"></i>
+                <p>{{user.username}}</p>
+                <i class="fas fa-caret-square-down"></i>
+                <i class="fas fa-sign-out-alt"></i>
+            </div>
+        </div>
+    </header>
+
+    <form class="new-file-form" method="POST">
+        <div class="file-form">
+            <h1>Archivo</h1>
+            <div class="new-file">
+                <label class="file-input" for="file">
+                    <input type="file" name="file">
+                </label>
+            </div>
+            <h1>Motivo</h1>
+            <label for="reason">
+                <textarea name="reason"></textarea>
+            </label>
+        </div>
+    </form>
+    
+</body>
+</html>
