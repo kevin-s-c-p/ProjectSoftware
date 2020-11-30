@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/dedaa49cc7.js" crossorigin="anonymous"></script>
@@ -12,14 +13,14 @@
     <header class="header">
         <div class="header-container">
             <h1>Inicio</h1>
-            <p>Agregar Usuario</p>
-            <p>Subir Archivo</p>
-            <p>Ver Archivos</p>
+            <p><a href="{% url 'index' %}">Agregar Usuario</a></p>
+            <p><a href="{% url 'addfiles' %}">Subir Archivo</a></p>
+            <p><a href="{% url 'files' %}">Ver Archivos</a></p>
             <div class="user-options">
-                <i class="fas fa-user"></i>
+                <a href="{% url 'to_user' %}"><i class="fas fa-user"></i></a>
                 <p>{{user.username}}</p>
                 <i class="fas fa-caret-square-down"></i>
-                <i class="fas fa-sign-out-alt"></i>
+                <a href="{% url 'logout_user' %}"><i class="fas fa-sign-out-alt"></i></a>
             </div>
         </div>
     </header>

@@ -44,3 +44,15 @@ def index(request):
     
 
     return render(request,"ProjectApp/index.html")
+
+def files(request):
+
+    return render(request,"ProjectApp/files.html")
+
+def add_file(request):
+
+    return render(request,"ProjectApp/addfile.html")
+
+def to_user(request):
+
+    return render(request,"ProjectApp/users.html")

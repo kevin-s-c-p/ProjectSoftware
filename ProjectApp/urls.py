@@ -8,4 +8,7 @@ urlpatterns = [
     path('accounts/login/',views.login_user, name='login'),
     path('logout/',views.logout_user, name='logout_user'),
     path('',login_required(views.index), name='index'),
+    path('files/',login_required(views.files), name = 'files'),
+    path('add/files/',login_required(views.add_file), name = 'addfiles'),
+    path('account/users/',login_required(views.to_user), name = 'to_user'),
 ]
