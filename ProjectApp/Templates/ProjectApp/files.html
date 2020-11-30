@@ -1,51 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/dedaa49cc7.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../../static/ProjectApp/normalize.css">
-    <link rel="stylesheet" href="../../static/ProjectApp/styles.css">
-    <title>Archivos</title>
-</head>
-<body>
-    <header class="header">
-        <div class="header-container">
-            <h1>Inicio</h1>
-            <p>Agregar Usuario</p>
-            <p>Subir Archivo</p>
-            <p>Ver Archivos</p>
-            <div class="user-options">
-                <i class="fas fa-user"></i>
-                <p>{{user.username}}</p>
-                <i class="fas fa-caret-square-down"></i>
-                <i class="fas fa-sign-out-alt"></i>
-            </div>
-        </div>
-    </header>
+{% extends "ProjectApp/base.html" %}
 
+{% block title %} Archivos {% endblock title %}
+
+{% block content %}
+<table class="display-table">
+    <tr>
+        <th>Nombre</th>
+        <th>Extensión</th>
+        <th>Fecha</th>
+        <th>Tamaño</th>
+        <th>Usuario</th>
+        <th>Acciones</th>
+    </tr>
     
-    <table class="display-table">
-        <tr>
-            <th>Nombre</th>
-            <th>Extensión</th>
-            <th>Fecha</th>
-            <th>Tamaño</th>
-            <th>Usuario</th>
-            <th>Acciones</th>
-        </tr>
-        
-        <tr class="table-file">
-            <td>Archivo</td>
-            <td>txt</td>
-            <td>11/11/2020</td>
-            <td>7200kb</td>
-            <td>Cliente</td>
-            <td class="table-buttons-scd">
-                <button>Descargar</button>
-            </td>
-        </tr>
-    </table>
-    
-</body>
-</html>
+    <tr class="table-file">
+        <td>Archivo</td>
+        <td>txt</td>
+        <td>11/11/2020</td>
+        <td>7200kb</td>
+        <td>Cliente</td>
+        <td class="table-buttons-scd">
+            <button>Descargar</button>
+        </td>
+    </tr>
+</table>
+{% endblock content %}
