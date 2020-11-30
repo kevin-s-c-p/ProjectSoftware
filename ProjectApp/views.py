@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.views.generic.edit import FormView
 from django.contrib.auth.decorators import login_required
 
-from ProjectApp.forms import loginform, UserRegister
+from ProjectApp.forms import registerUser
 
 # Create your views here.
 
@@ -42,8 +42,16 @@ def logout_user(request):
 
 def index(request):
     
+    form = registerUser()
 
-    return render(request,"ProjectApp/index.html")
+    if request.method=='POST':
+        form = registerUser(request.POST)
+        if form.is_valid():
+            form.save()
+
+    
+
+    return render(request,"ProjectApp/index.html",{'form':form})
 
 def files(request):
 
