@@ -23,3 +23,4 @@ class registerUser(UserCreationForm):
         labels = {
             'username':'Nombre de usuario'
         }
+

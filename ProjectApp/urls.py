@@ -3,6 +3,8 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 
 from ProjectApp import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('accounts/login/',views.login_user, name='login'),
@@ -12,3 +14,5 @@ urlpatterns = [
     path('add/files/',login_required(views.add_file), name = 'addfiles'),
     path('account/users/',login_required(views.to_user), name = 'to_user'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
