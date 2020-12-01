@@ -25,7 +25,10 @@ def login_user(request):
             if user.is_active:
                 login(request, user)
                 if request.GET.get('next',None):
-                    return HttpResponseRedirect(request.GET['next'])
+                    if user.is_staff:
+                        return HttpResponseRedirect(request.GET['next'])
+                    else:
+                        return redirect('addfiles')
                 else:
                     redirect('login')
         else:
@@ -43,17 +46,21 @@ def logout_user(request):
 def index(request):
     
     form = registerUser()
+    messege = "Welcome"
 
     if request.method=='POST':
-        form = registerUser(request.POST)
-        if form.is_valid():
-            form.save()
-            form = registerUser()
-            redirect('index')
+        if request.user.is_staff:
+            form = registerUser(request.POST)
+            if form.is_valid():
+                form.save()
+                form = registerUser()
+                redirect('index')
+        else:
+            messege = "No tienes Permisos de administrador"
 
     
 
-    return render(request,"ProjectApp/index.html",{'form':form})
+    return render(request,"ProjectApp/index.html",{'form':form,'messege':messege})
 
 def files(request):
 
