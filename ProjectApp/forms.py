@@ -9,29 +9,17 @@ class loginform(forms.Form):
     # class Meta:
     #     fields = ['username']
 
-class UserRegister(forms.Form):
-    username = forms.CharField(max_length=255)
-    password1 = forms.CharField(widget=forms.PasswordInput)
-    password2 = forms.CharField(widget=forms.PasswordInput)
-    mail = forms.EmailField(widget=forms.EmailInput)
-    options = (
-        ( True, "Administrador"),
-        ( False, "Empleado")
-    )
-    type_user = forms.ChoiceField(choices=options)
-
+class registerUser(UserCreationForm):
+    
     class Meta:
+        model = User
         fields = [
             'username',
-            'email',
-            'password',
-            'is_staff'
+            'is_staff',
+            'first_name',
+            'email'
         ]
-    
-    def save(self):
-        user = User.objects.create_user(self.username,self.mail,self.password1)
 
-        user.is_staff = self.type_user
-        user.superuser = self.type_user
-
-        user.save()
+        labels = {
+            'username':'Nombre de usuario'
+        }

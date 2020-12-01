@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.views.generic.edit import FormView
 from django.contrib.auth.decorators import login_required
 
-from ProjectApp.forms import loginform, UserRegister
+from ProjectApp.forms import registerUser
 
 # Create your views here.
 
@@ -25,7 +25,10 @@ def login_user(request):
             if user.is_active:
                 login(request, user)
                 if request.GET.get('next',None):
-                    return HttpResponseRedirect(request.GET['next'])
+                    if user.is_staff:
+                        return HttpResponseRedirect(request.GET['next'])
+                    else:
+                        return redirect('addfiles')
                 else:
                     redirect('login')
         else:
@@ -42,8 +45,22 @@ def logout_user(request):
 
 def index(request):
     
+    form = registerUser()
+    messege = "Welcome"
 
-    return render(request,"ProjectApp/index.html")
+    if request.method=='POST':
+        if request.user.is_staff:
+            form = registerUser(request.POST)
+            if form.is_valid():
+                form.save()
+                form = registerUser()
+                redirect('index')
+        else:
+            messege = "No tienes Permisos de administrador"
+
+    
+
+    return render(request,"ProjectApp/index.html",{'form':form,'messege':messege})
 
 def files(request):
 
