@@ -4,9 +4,10 @@ from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import FormView
 from django.contrib.auth.decorators import login_required
-import os
+from django.contrib.auth.models import User
 
 from ProjectApp.forms import registerUser, addfiles
+from .models import archivos
 
 # Create your views here.
 
@@ -65,7 +66,15 @@ def index(request):
 
 def files(request):
 
-    return render(request,"ProjectApp/files.html")
+    arch = archivos.objects.all()
+    message = "No hay archivos actualmente"
+
+    context = {
+        'arch':arch,
+        'message':message
+    }
+
+    return render(request,"ProjectApp/files.html",context)
 
 def add_file(request):
     message = "Ingrese su Archivo"
@@ -91,6 +100,8 @@ def add_file(request):
     return render(request,"ProjectApp/addfile.html",context)
 
 def to_user(request):
+    
+
 
     return render(request,"ProjectApp/users.html")
 
