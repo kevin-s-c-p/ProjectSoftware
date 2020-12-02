@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import FormView
 from django.contrib.auth.decorators import login_required
+# from os.path import splitext
 
 from ProjectApp.forms import registerUser
 
@@ -67,8 +68,9 @@ def files(request):
     return render(request,"ProjectApp/files.html")
 
 def add_file(request):
+    message = "Ingrese su Archivo"
 
-    return render(request,"ProjectApp/addfile.html")
+    return render(request,"ProjectApp/addfile.html",{'message':message})
 
 def to_user(request):
 
