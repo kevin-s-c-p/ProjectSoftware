@@ -100,10 +100,18 @@ def add_file(request):
     return render(request,"ProjectApp/addfile.html",context)
 
 def to_user(request):
-    
+    message = "No tienes Permisos de administrador"
+    users = None
 
+    if request.user.is_staff:
+        users = User.objects.all()
 
-    return render(request,"ProjectApp/users.html")
+    context = {
+        'message':message,
+        'users': users
+    }
+
+    return render(request,"ProjectApp/users.html",context)
 
 def exten(arch):
     arch2 = arch.split('.')

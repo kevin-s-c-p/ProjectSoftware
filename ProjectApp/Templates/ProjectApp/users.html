@@ -12,31 +12,28 @@
         <th>Contraseña</th>
         <th>Acciones</th>
     </tr>
-    <tr class="table-file">
-        <td>Empleado</td>
-        <td>Cliente@cliente.co</td>
-        <td>Administrador</td>
-        <td>Empleado</td>
-        <td>
-            <p>******** <span><i class="far fa-eye"></i></span></p>
-        </td>
-        <td class="table-buttons">
-            <button>Eliminar</button>
-            <button>Modificar</button>
-        </td>
-    </tr>
-    <tr>
-        <td>Empleado</td>
-        <td>Cliente@cliente.co</td>
-        <td>Administrador</td>
-        <td>Empleado</td>
-        <td>
-            <p>******** <span><i class="far fa-eye"></i></span></p>
-        </td>
-        <td class="table-buttons">
-            <button>Eliminar</button>
-            <button>Modificar</button>
-        </td>
-    </tr>
+    {% if users == None %}
+        
+        <tr class="table-file">
+            <td>{{message}}</td>
+        </tr>
+    {% else %}
+        {% for us in users %}
+        <tr class="table-file">
+            <td>{{us.first_name}}</td>
+            <td>{{us.email}}</td>
+            <td>Administrador</td>
+            <td>{{us.is_staff}}</td>
+            <td>
+                <p>******** <span><i class="far fa-eye"></i></span></p>
+            </td>
+            <td class="table-buttons">
+                <button>Eliminar</button>
+                <button>Modificar</button>
+            </td>
+        </tr>
+        {% endfor %}
+    {% endif %}
+    
 </table>
 {% endblock content %}
