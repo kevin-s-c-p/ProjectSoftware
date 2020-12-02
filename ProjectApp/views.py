@@ -4,8 +4,9 @@ from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import FormView
 from django.contrib.auth.decorators import login_required
+import os
 
-from ProjectApp.forms import registerUser
+from ProjectApp.forms import registerUser, addfiles
 
 # Create your views here.
 
@@ -67,9 +68,33 @@ def files(request):
     return render(request,"ProjectApp/files.html")
 
 def add_file(request):
+    message = "Ingrese su Archivo"
+    form = addfiles()
 
-    return render(request,"ProjectApp/addfile.html")
+    context = {
+        'message':message,
+        'form':form
+    }
+
+    if request.method == 'POST':
+        form = addfiles(request.POST,request.FILES)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.usuario = request.user
+            arch = (str(form.archivo))#guardamos el archivo en tipo string
+            form.extencion = exten(arch)
+            form.tamaño = '10 kb'
+            form.save()
+        else:
+            message = "Error en el Envio de formulario"
+
+    return render(request,"ProjectApp/addfile.html",context)
 
 def to_user(request):
 
     return render(request,"ProjectApp/users.html")
+
+def exten(arch):
+    arch2 = arch.split('.')
+
+    return arch2[-1]
