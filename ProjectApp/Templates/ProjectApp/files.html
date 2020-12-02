@@ -13,15 +13,22 @@
         <th>Acciones</th>
     </tr>
     
+    {% for Archivos in arch %}
     <tr class="table-file">
-        <td>Archivo</td>
-        <td>txt</td>
-        <td>11/11/2020</td>
-        <td>7200kb</td>
-        <td>Cliente</td>
-        <td class="table-buttons-scd">
-            <button>Descargar</button>
-        </td>
+        {% if arch %} 
+            <td>{{Archivos.nombre}}</td>
+            <td>{{Archivos.extencion}}</td>
+            <td>{{Archivos.fecha}}</td>
+            <td>{{Archivos.tamaño}}</td>
+            <td>{{Archivos.usuario}}</td>
+            <!-- <td class="table-buttons-scd">
+                <button >Descargar</button>
+            </td>    -->
+            <td><a href="{{Archivos.archivo.url}}">Descargar</a></td>
+        {% else %}
+            <td>{{message}}</td>
+        {% endif %}
     </tr>
+    {% endfor %}
 </table>
 {% endblock content %}
