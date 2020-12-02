@@ -3,18 +3,26 @@
 {% block title %} Añadir archivos {% endblock  %}
 
 {% block content %}
-<form class="new-file-form" method="POST">
+<form class="new-file-form" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
     <div class="file-form">
+        <h3>{{message}}</h3>
+        <h1>Nombre</h1>
+        <!-- <input type="text" name="nombre" id=""> -->
+        {{form.nombre}}
         <h1>Archivo</h1>
         <div class="new-file">
             <label class="file-input" for="file">
-                <input type="file" name="file">
+                <!-- <input type="file" name="file"> -->
+                {{form.archivo}}
             </label>
         </div>
         <h1>Motivo</h1>
         <label for="reason">
-            <textarea name="reason"></textarea>
+            <!-- <textarea name="reason"></textarea> -->
+            <button type="submit">Insertar</button>
         </label>
+
     </div>
 </form>
 {% endblock content %}
